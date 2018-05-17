@@ -34,31 +34,31 @@ public class ChartActivity extends AppCompatActivity {
 //         senserList.add(new Senser("22","11","1","11","11","11","22"));
 //         senserList.add(new Senser("33","11","1","11","11","11","33"));
 
-         adapter = new SenserListAdapter(getApplicationContext(), senserList);
-         listView.setAdapter(adapter);
+        adapter = new SenserListAdapter(getApplicationContext(), senserList);
+        listView.setAdapter(adapter);
 
-         try{
-             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
-             JSONArray jsonArray = jsonObject.getJSONArray("response");
-             int count= 0;
-             String senser1, senser2, senser3, senser4, senser5, senser6, data_hora;
+        try{
+            JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
+            JSONArray jsonArray = jsonObject.getJSONArray("response");
+            int count= 0;
+            String senser1, senser2, senser3, senser4, senser5, senser6, data_hora;
 //             String senser1;
-             while (count < jsonArray.length()){
-                 JSONObject object = jsonArray.getJSONObject(count);
-                 senser1 = object.getString("senser1");
-                 senser2 = object.getString("senser2");
-                 senser3 = object.getString("senser3");
-                 senser4 = object.getString("senser4");
-                 senser5 = object.getString("senser5");
-                 senser6 = object.getString("senser6");
-                 data_hora = object.getString("data_hora");
-                 Senser senser = new Senser(senser1, senser2, senser3, senser4, senser5, senser6, data_hora);
+            while (count < jsonArray.length()){
+                JSONObject object = jsonArray.getJSONObject(count);
+                senser1 = object.getString("sensor1");
+                senser2 = object.getString("sensor2");
+                senser3 = object.getString("sensor3");
+                senser4 = object.getString("sensor4");
+                senser5 = object.getString("sensor5");
+                senser6 = object.getString("sensor6");
+                data_hora = object.getString("date_time");
+                Senser senser = new Senser(senser1, senser2, senser3, senser4, senser5, senser6, data_hora);
 //                 Senser senser = new Senser(senser1);
-                 senserList.add(senser);
-                 count++;
-             }
-         }catch (Exception e){
-             e.printStackTrace();
-         }
+                senserList.add(senser);
+                count++;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

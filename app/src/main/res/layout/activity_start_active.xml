@@ -33,6 +33,13 @@
         android:layout_below="@+id/caseimage"
         android:text="case로 받아온값 + 입니다. 주의사항" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

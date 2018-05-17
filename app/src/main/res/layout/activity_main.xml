@@ -58,19 +58,30 @@
         android:layout_below="@+id/imgbtn2"
         android:text="그래프로보기" />
 
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv1"
-        android:layout_toEndOf="@+id/imgbtn"
-        android:text="날짜" />
+    <!--<TextView-->
+        <!--android:id="@+id/tv2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/tv1"-->
+        <!--android:layout_toEndOf="@+id/imgbtn"-->
+        <!--android:text="날짜" />-->
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv2"
+        android:layout_below="@+id/data"
         android:layout_toEndOf="@+id/imgbtn"
         android:text="선택한 날짜가 맞습니까?" />
+
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tv1"
+        android:layout_toEndOf="@+id/imgbtn"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

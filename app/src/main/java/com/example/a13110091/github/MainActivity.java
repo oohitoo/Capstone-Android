@@ -17,7 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Date;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button chart = (Button)findViewById(R.id.mainbt1);
         Button grape = (Button)findViewById(R.id.mainbt2);
-        tv2 = (TextView)findViewById(R.id.tv2);
+        tv2 = (TextView)findViewById(R.id.data);
         ImageButton img = (ImageButton)findViewById(R.id.imgbtn);
 
         img.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-        class BackgroundTask extends AsyncTask<Void, Void, String> {
+    class BackgroundTask extends AsyncTask<Void, Void, String> {
 
         String target;
 
