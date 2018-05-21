@@ -38,7 +38,7 @@ public class ChartActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         try{
-            JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
+            JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList")); //userList
             JSONArray jsonArray = jsonObject.getJSONArray("response");
             int count= 0;
             String senser1, senser2, senser3, senser4, senser5, senser6, data_hora;

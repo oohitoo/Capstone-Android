@@ -24,10 +24,11 @@ $con = mysqli_connect("localhost","root","","theunit");
 if(mysqli_connect_errno($con)){
     echo "Failed to connect to MYSQL ". mysqli_connect_error();
 }
+$data = $_POST["data"];
 
 mysqli_set_charset($con, "utf8");
 
-$res = mysqli_query($con, "select * from datadb");
+$res = mysqli_query($con, "select * from datadb date_time like '$data%'");
 
 $response = array();
 

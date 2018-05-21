@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -52,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         chart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String data = tv2.getText().toString();
+                Log.e("RECVDATA :" , data);
+
                 new BackgroundTask().execute();
                 Intent intent = new Intent(MainActivity.this, ChartActivity.class);
                 //액티비티 시작!
@@ -73,10 +78,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             target = "http://210.119.85.219/senserList.php";
+//            target = "http://210.119.85.219/test.php";
         }
 
         @Override
         protected String doInBackground(Void... voids) {
+            String param = "data"+tv2+""; // 인풋 파라메터값 생성
+            Log.e("POST", param);
+
             try {
                 URL url = new URL(target);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -90,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 bufferedReader.close();
                 inputStream.close();
+                //추가한 라인
+//                outputStream.close();
                 httpURLConnection.disconnect();
                 return stringBuilder.toString().trim();
             } catch (Exception e) {
