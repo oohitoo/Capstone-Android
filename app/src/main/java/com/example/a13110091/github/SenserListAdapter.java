@@ -16,10 +16,12 @@ public class SenserListAdapter extends BaseAdapter{
 
     private Context context;
     private List<Senser> senserList;
+    private List<Senser> saveList;
 
-    public SenserListAdapter(Context context, List<Senser> senserList){
+    public SenserListAdapter(Context context, List<Senser> senserList, List<Senser> saveList){
         this.context = context;
         this.senserList = senserList;
+        this.saveList = saveList;
     }
 
     @Override

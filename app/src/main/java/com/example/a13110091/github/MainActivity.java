@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatePickerDialog dlg;
     TextView tv2;
-
+    String str;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +46,13 @@ public class MainActivity extends AppCompatActivity {
         dlg = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                tv2.setText(String.format("%4d-%2d-%2d",year,month+1,day));
+               tv2.setText(String.format("%4d-%2d-%2d",year,month+1,day));
+                str = tv2.getText().toString();
+                Log.e("되나",str);
             }
         },2018,5,10);
+
+
 
         chart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,23 +87,33 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String param = "data"+tv2+""; // 인풋 파라메터값 생성
-            Log.e("POST", param);
+            String param = "data="+str+""; // 인풋 파라메터값 생성
 
             try {
                 URL url = new URL(target);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                /*추가한 라인*/
+//                httpURLConnection.setRequestMethod("POST");
+//                httpURLConnection.setDoInput(true);
+//                httpURLConnection.connect();
+                /* 안드로이드 -> 서버 파라메타값 전달*/
+//                OutputStream outs = httpURLConnection.getOutputStream();
+//                outs.write(str.getBytes("UTF-8"));
+//                outs.flush();
+
                 InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream), 8*1024);
                 String temp;
                 StringBuilder stringBuilder = new StringBuilder();
                 while ((temp = bufferedReader.readLine()) != null) {
                     stringBuilder.append(temp + "\n");
                     Log.d("temp :", temp+""); // temp 저장됨
                 }
+
                 bufferedReader.close();
                 inputStream.close();
                 //추가한 라인
+//                outs.close();
 //                outputStream.close();
                 httpURLConnection.disconnect();
                 return stringBuilder.toString().trim();
