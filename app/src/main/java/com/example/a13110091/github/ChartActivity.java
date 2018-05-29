@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,13 +23,15 @@ public class ChartActivity extends AppCompatActivity {
     private List<Senser> senserList;
     private List<Senser> saveList;
 
+    private String data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
 //        TextView userListTextView = (TextView)findViewById(R.id.userListTextView);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 //        userListTextView.setText(intent.getStringExtra("userList"));
 
         listView = (ListView)findViewById(R.id.listView);
@@ -67,25 +70,30 @@ public class ChartActivity extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
-        EditText search = (EditText)findViewById(R.id.search);
+
+        final EditText search = (EditText)findViewById(R.id.search);
+        data = intent.getStringExtra("1234");
+        search.setText(data);
+
         search.addTextChangedListener(new TextWatcher() {
-            @Override
+            @Override/* 입력 하기 전에*/
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
 
-            @Override
+            @Override /* 입력되는 텍스트에 변화가 있을 때*/
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 searchUser(charSequence.toString());
             }
 
-            @Override
+            @Override /* 입력이 끝났을때 */
             public void afterTextChanged(Editable editable) {
 
             }
         });
     }
     public void searchUser(String search){
+
         senserList.clear();
         for (int i=0; i < saveList.size(); i++){
             if (saveList.get(i).getData_hora().contains(search)){ //찾아주는값

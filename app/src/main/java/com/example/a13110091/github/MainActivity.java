@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     DatePickerDialog dlg;
     TextView tv2;
     String str;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,25 +47,29 @@ public class MainActivity extends AppCompatActivity {
         dlg = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-               tv2.setText(String.format("%4d-%2d-%2d",year,month+1,day));
+                String Smonth = null;
+                if(month <10){
+                    Smonth = "0" + String.valueOf(month + 1);
+                    Log.e("3333", Smonth);
+                }
+                tv2.setText(String.format("%4d-%2s-%2d",year,Smonth,day));
                 str = tv2.getText().toString();
-                Log.e("되나",str);
             }
-        },2018,5,10);
-
-
+        },2018,05,10);
 
         chart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String data = tv2.getText().toString();
-                Log.e("RECVDATA :" , data);
-
-                new BackgroundTask().execute();
-                Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+//                String data = tv2.getText().toString();
+//                Log.e("RECVDATA :" , data);
+                Intent intent1 = new Intent(MainActivity.this, ChartActivity.class);
                 //액티비티 시작!
-                startActivity(intent);
+//                intent1.putExtra("1234",str);
+//                Log.e("되나",str);
+                startActivity(intent1);
+                new BackgroundTask().execute();
+
             }
         });
         grape.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         public void onPostExecute(String result) {
             Intent intent = new Intent(MainActivity.this, ChartActivity.class);
             intent.putExtra("userList", result);
+            intent.putExtra("1234", str);
             MainActivity.this.startActivity(intent);
         }
     }

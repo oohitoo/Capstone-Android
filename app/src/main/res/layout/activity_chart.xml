@@ -28,10 +28,18 @@
     </ListView>-->
 
     <EditText
+        android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/search"
-        android:hint="검색"/>
+        android:ems="10"
+        android:hint="확인"
+        android:inputType="textPersonName" />
+
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/search"-->
+        <!--android:hint="검색"/>-->
     
     <ListView
     android:layout_width="match_parent"
