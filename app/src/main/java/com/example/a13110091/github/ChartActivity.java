@@ -1,5 +1,6 @@
 package com.example.a13110091.github;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ public class ChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+
+        setTitle("날짜별보기");
 
 //        TextView userListTextView = (TextView)findViewById(R.id.userListTextView);
         final Intent intent = getIntent();
@@ -74,6 +77,15 @@ public class ChartActivity extends AppCompatActivity {
         final EditText search = (EditText)findViewById(R.id.search);
         data = intent.getStringExtra("1234");
         search.setText(data);
+
+        /* 결과값 가져오는거 */
+            senserList.clear();
+            for (int i = 0; i < saveList.size(); i++) {
+                if (saveList.get(i).getData_hora().contains(data)) { //찾아주는값
+                    senserList.add(saveList.get(i));
+                }
+            }
+
 
         search.addTextChangedListener(new TextWatcher() {
             @Override/* 입력 하기 전에*/

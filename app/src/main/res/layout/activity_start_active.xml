@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:text="현재자세는?"
+        android:text="나의 현재자세는?"
+        android:textAlignment="center"
+        android:textSize="30sp"
         tools:layout_editor_absoluteX="3dp"
         tools:layout_editor_absoluteY="1dp" />
 
@@ -25,32 +27,61 @@
         android:layout_below="@+id/starttv1"
         app:srcCompat="@android:drawable/btn_dialog" />
 
-    <TextView
-        android:id="@+id/starttv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/caseimage"
-        android:text="case로 받아온값 + 입니다. 주의사항" />
+        android:id="@+id/relativeLayout">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:text="자세로 앉았습니다"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="1"
+            android:text="주의사항 : 와이파이 및 LTE가 연결되어있어야 합니다." />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/relativeLayout"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/startbt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_alignBaseline="@+id/startbt2"
+            android:layout_alignBottom="@+id/startbt2"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:text="상세보기" />
@@ -63,6 +94,31 @@
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:text="운동법" />
+
     </LinearLayout>
 
+
 </RelativeLayout>
+
+    <!-- <TextView
+               android:id="@+id/textView5"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentStart="true"
+               android:layout_alignTop="@+id/starttv2"
+               android:layout_toStartOf="@+id/listView"
+               android:text="한주동안" />
+
+           <ListView
+               android:id="@+id/listView"
+               android:layout_width="80dp"
+               android:layout_height="50dp"
+               android:layout_toStartOf="@+id/starttv2" />
+
+           <TextView
+               android:id="@+id/starttv2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentEnd="true"
+               android:layout_centerVertical="true"
+               android:text="로 가장 많이 앉아있었습니다" />-->

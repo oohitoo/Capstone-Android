@@ -1,5 +1,6 @@
 package com.example.a13110091.github;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setTitle("상세보기");
+
         Button chart = (Button)findViewById(R.id.mainbt1);
         Button grape = (Button)findViewById(R.id.mainbt2);
         tv2 = (TextView)findViewById(R.id.data);
@@ -61,15 +64,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//                String data = tv2.getText().toString();
-//                Log.e("RECVDATA :" , data);
-                Intent intent1 = new Intent(MainActivity.this, ChartActivity.class);
-                //액티비티 시작!
-//                intent1.putExtra("1234",str);
-//                Log.e("되나",str);
-                startActivity(intent1);
-                new BackgroundTask().execute();
+               // Intent intent1 = new Intent(MainActivity.this, ChartActivity.class);
 
+                //startActivity(intent1);
+                //new BackgroundTask().execute();
+                if(str == null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
+                }else {
+                    Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+                    startActivity(intent);
+                    new BackgroundTask().execute();
+                }
             }
         });
         grape.setOnClickListener(new View.OnClickListener() {

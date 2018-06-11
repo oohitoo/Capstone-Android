@@ -20,9 +20,13 @@
         android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/imgbtn"
-        android:text="설명충등판" />
+        android:singleLine="false"
+        android:text="달력을 터치하여\n날짜를 선택하세요"
+        android:textAlignment="center"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/mainbt1"
@@ -45,9 +49,12 @@
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/mainbt1"
+        android:layout_marginTop="24dp"
         android:layout_toEndOf="@+id/imgbtn2"
-        android:text="설명충등판" />
+        android:text="아래의 버튼을 클릭하면 \nOO그래프가 나옵니다"
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/mainbt2"
@@ -70,9 +77,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/data"
         android:layout_toEndOf="@+id/imgbtn"
-        android:text="선택한 날짜가 맞습니까?" />
+        android:text="선택한 날짜가 맞습니까?"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/data"

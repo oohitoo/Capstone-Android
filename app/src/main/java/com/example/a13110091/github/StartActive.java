@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -40,11 +42,14 @@ public class StartActive extends AppCompatActivity {
 
     ListView list;
 
+    ImageView iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_active);
+
+        setTitle("나의 자세는");
 
         //새로운 파싱법인 부분
         list = (ListView)findViewById(R.id.listView);
@@ -57,6 +62,7 @@ public class StartActive extends AppCompatActivity {
 
         Button startbt1 = (Button)findViewById(R.id.startbt1);
         Button startbt2 = (Button)findViewById(R.id.startbt2);
+        iv = (ImageView)findViewById(R.id.caseimage);
 
         startbt1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,22 +85,54 @@ public class StartActive extends AppCompatActivity {
             JSONObject jsonObj = new JSONObject(myJSON);
             peoples = jsonObj.getJSONArray(TAG_RESULTS);
 
-            Log.d("111", "여기까지 되니?");
 
             for(int i =0; i < peoples.length(); i++){
                 JSONObject c = peoples.getJSONObject(i);
                 String cass = c.getString(TAG_CASS);
 
                 HashMap<String, String> persons = new HashMap<String, String>();
+
                 persons.put(TAG_CASS, cass);
 
+                Log.d("머가잇니", String.valueOf(persons));
+                Log.d("PPPPP", cass);
+
+                switch(cass){
+                    case "p": //p면 이거
+                        iv.setImageResource(R.drawable.intro);
+                        Log.e("ehlqlslss :", iv+"");
+                        break;
+                    case  "왼쪽으로 앉았습니다":
+                        iv.setImageResource(R.drawable.intro);
+                        Log.e("ehlqlslss :", iv+"");
+                        break;
+                    case  "오른쪽으로 앉았습니다":
+                        iv.setImageResource(R.drawable.intro);
+                        Log.e("ehlqlslss :", iv+"");
+                        break;
+                    case  "앞으로 앉았습니다":
+                        iv.setImageResource(R.drawable.intro);
+                        Log.e("ehlqlslss :", iv+"");
+                        break;
+                    case  "뒤로 앉았습니다":
+                        iv.setImageResource(R.drawable.intro);
+                        Log.e("ehlqlslss :", iv+"");
+                        break;
+                }
                 personList.add(persons);
+
                 Log.d("1111" , personList+"");
             }
 
             ListAdapter adapter = new SimpleAdapter(StartActive.this, personList, R.layout.list_item, new String[]{TAG_CASS}, new int[]{R.id.posture});
 
+//            if( == "posture"){
+//                Log.e("123", "되냐");
+//                iv.setImageResource(R.drawable.intro);
+//            }
+
             list.setAdapter(adapter);
+
         }catch (Exception e){
             Log.d("222", "여기까지 되니?");
             e.printStackTrace();
