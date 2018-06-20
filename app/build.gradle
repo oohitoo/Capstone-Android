@@ -28,8 +28,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile 'com.android.volley:volley:1.0.0' //인터넷 접근
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4' // 안드로이드 차트
 }
-
-
+repositories {
+    maven { url "https://jitpack.io" }
+}
 
 apply plugin: 'com.google.gms.google-services'
