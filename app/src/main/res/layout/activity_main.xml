@@ -53,7 +53,7 @@
         android:layout_below="@+id/mainbt1"
         android:layout_marginTop="24dp"
         android:layout_toEndOf="@+id/imgbtn2"
-        android:text="아래의 버튼을 클릭하면 \nOO그래프가 나옵니다"
+        android:text="아래의 버튼을 클릭하면 \n원형그래프가 나옵니다"
         android:textAlignment="center" />
 
     <Button

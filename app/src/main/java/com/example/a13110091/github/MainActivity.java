@@ -13,11 +13,17 @@ import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 
@@ -25,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     DatePickerDialog dlg;
     TextView tv2;
-    String str;
+    String DATE;
+
+    phpdo task;
+    String link, str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         Button chart = (Button)findViewById(R.id.mainbt1);
         Button grape = (Button)findViewById(R.id.mainbt2);
         tv2 = (TextView)findViewById(R.id.data);
-        ImageButton img = (ImageButton)findViewById(R.id.imgbtn);
+        tv2.setFocusable(false);
+        tv2.setClickable(false);
+        final ImageButton img = (ImageButton)findViewById(R.id.imgbtn);
 
         img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,12 +62,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 String Smonth = null;
-                if(month <10){
+                String Sday = null;
+                if(month <10 && day < 10){
                     Smonth = "0" + String.valueOf(month + 1);
-                    Log.e("3333", Smonth);
+                    Sday = "0" + String.valueOf(day);
+                    tv2.setText(String.format("%4d-%2s-%2s",year,Smonth,Sday));
                 }
-                tv2.setText(String.format("%4d-%2s-%2d",year,Smonth,day));
-                str = tv2.getText().toString();
+                else if(month>=10 && day <10){
+                    Sday = "0" + String.valueOf(day);
+                    tv2.setText(String.format("%4d-%2d-%2s",year,month+1,Sday));
+                }
+                else if(month<10 && day >=10){
+                    Smonth = "0" + String.valueOf(month+1);
+                    tv2.setText(String.format("%4d-%2s-%2d",year,Smonth,day));
+                }
+                else if(month>=10 && day >=10){
+                    tv2.setText(String.format("%4d-%2d-%2d",year,month+1,day));
+                }
+//                tv2.setText(String.format("%4d-%2s-%2d",year,Smonth,day));
+                DATE = tv2.getText().toString();
+
+                task = new phpdo();
+                task.execute(DATE);
             }
         },2018,05,10);
 
@@ -68,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
                 //startActivity(intent1);
                 //new BackgroundTask().execute();
-                if(str == null){
+                if(DATE == null){
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setMessage("날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
+                    builder.setMessage("달력을 클릭하여 날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
                 }else {
                     Intent intent = new Intent(MainActivity.this, ChartActivity.class);
                     startActivity(intent);
@@ -81,11 +108,62 @@ public class MainActivity extends AppCompatActivity {
         grape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, GraphActivity.class);
-                startActivity(intent);
+                if(DATE == null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("위의 달력을 클릭하여 날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
+                }else{
+                    Intent intent = new Intent(MainActivity.this, GraphActivity.class);
+                    intent.putExtra("DATE", str);
+                    startActivity(intent);
+                }
             }
         });
     }
+    class  phpdo extends AsyncTask<String, Void, String>{
+
+        protected void onPreExecute(){
+            link = "http://210.119.85.219/DATEtest.php?DATE=" + DATE;
+        }
+        @Override
+        protected String doInBackground(String... arg0) {
+
+            try {
+//                String DATE =  arg0[0];
+
+//                String link = "http://210.119.85.219/DATEtest.php?DATE=" + DATE;
+                URL url = new URL(link);
+                HttpClient client = new DefaultHttpClient();
+                HttpGet request = new HttpGet();
+                request.setURI(new URI(link));
+                HttpResponse response = client.execute(request);
+                BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+                StringBuffer sb = new StringBuffer("");
+                String line = "";
+
+                while ((line = in.readLine()) != null) {
+                    sb.append(line + "\n");
+                    break;
+                }
+                in.close();
+                return sb.toString();
+            } catch (Exception e) {
+                return new String("Exception: " + e.getMessage());
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String result){
+            //txtview.setText("Login Successful");
+            str = result;
+            Log.e("리절트", result);
+            //리절트에 값있음
+        }
+    }
+
+
+    /* 날짜별 보기*/
     class BackgroundTask extends AsyncTask<Void, Void, String> {
 
         String target;
@@ -98,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String param = "data="+str+""; // 인풋 파라메터값 생성
+//            String param = "data="+DATE+""; // 인풋 파라메터값 생성
 
             try {
                 URL url = new URL(target);
@@ -143,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
         public void onPostExecute(String result) {
             Intent intent = new Intent(MainActivity.this, ChartActivity.class);
             intent.putExtra("userList", result);
-            intent.putExtra("1234", str);
+            intent.putExtra("1234", DATE);
             MainActivity.this.startActivity(intent);
         }
     }

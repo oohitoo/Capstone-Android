@@ -102,19 +102,19 @@ public class StartActive extends AppCompatActivity {
                         iv.setImageResource(R.drawable.intro);
                         Log.e("ehlqlslss :", iv+"");
                         break;
-                    case  "왼쪽으로 앉았습니다":
+                    case  "왼쪽으로 앉았습니다": // 1
                         iv.setImageResource(R.drawable.intro);
                         Log.e("ehlqlslss :", iv+"");
                         break;
-                    case  "오른쪽으로 앉았습니다":
+                    case  "오른쪽으로 앉았습니다": // 2
                         iv.setImageResource(R.drawable.intro);
                         Log.e("ehlqlslss :", iv+"");
                         break;
-                    case  "앞으로 앉았습니다":
+                    case  "앞으로 앉았습니다": // 3
                         iv.setImageResource(R.drawable.intro);
                         Log.e("ehlqlslss :", iv+"");
                         break;
-                    case  "뒤로 앉았습니다":
+                    case  "뒤로 앉았습니다": // 4
                         iv.setImageResource(R.drawable.intro);
                         Log.e("ehlqlslss :", iv+"");
                         break;
