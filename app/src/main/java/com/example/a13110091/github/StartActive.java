@@ -2,6 +2,8 @@ package com.example.a13110091.github;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -79,8 +81,36 @@ public class StartActive extends AppCompatActivity {
             }
         });
     }
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+//            updateThread();
+            showList();
+        }
+    };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Thread myThread = new Thread(new Runnable() {
+            public void run() {
+                while (true) {
+                    try {
+                        handler.sendMessage(handler.obtainMessage());
+                        Thread.sleep(1000);
+                    } catch (Throwable t) {
+                    }
+                }
+            }
+        });
+
+        myThread.start();
+    }
+
     protected void showList(){
         try{
+
             Log.d("222",myJSON);
             JSONObject jsonObj = new JSONObject(myJSON);
             peoples = jsonObj.getJSONArray(TAG_RESULTS);
@@ -118,6 +148,9 @@ public class StartActive extends AppCompatActivity {
                         iv.setImageResource(R.drawable.intro);
                         Log.e("ehlqlslss :", iv+"");
                         break;
+                }
+                if(!personList.isEmpty()){
+                   personList.remove(0);
                 }
                 personList.add(persons);
 
