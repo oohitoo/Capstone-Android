@@ -86,6 +86,7 @@ public class StartActive extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
 //            updateThread();
+            getData("http://210.119.85.219/PHP_connection.php"); //수정 필요
             showList();
         }
     };
@@ -129,24 +130,24 @@ public class StartActive extends AppCompatActivity {
 
                 switch(cass){
                     case "p": //p면 이거
-                        iv.setImageResource(R.drawable.intro);
-                        Log.e("ehlqlslss :", iv+"");
+                        iv.setImageResource(R.drawable.success);
+                        Log.e("1번 :", iv+"");
                         break;
                     case  "왼쪽으로 앉았습니다": // 1
-                        iv.setImageResource(R.drawable.intro);
-                        Log.e("ehlqlslss :", iv+"");
+                        iv.setImageResource(R.drawable.sitleft);
+                        Log.e("2번:", iv+"");
                         break;
                     case  "오른쪽으로 앉았습니다": // 2
-                        iv.setImageResource(R.drawable.intro);
-                        Log.e("ehlqlslss :", iv+"");
+                        iv.setImageResource(R.drawable.sitright);
+                        Log.e("3번:", iv+"");
                         break;
                     case  "앞으로 앉았습니다": // 3
-                        iv.setImageResource(R.drawable.intro);
-                        Log.e("ehlqlslss :", iv+"");
+                        iv.setImageResource(R.drawable.situp);
+                        Log.e("4번:", iv+"");
                         break;
                     case  "뒤로 앉았습니다": // 4
-                        iv.setImageResource(R.drawable.intro);
-                        Log.e("ehlqlslss :", iv+"");
+                        iv.setImageResource(R.drawable.sitback);
+                        Log.e("5번:", iv+"");
                         break;
                 }
                 if(!personList.isEmpty()){
@@ -172,6 +173,7 @@ public class StartActive extends AppCompatActivity {
         }
     }
     public void getData(String url){
+
         class GetDataJSON extends AsyncTask<String, Void, String> {
 
             @Override
