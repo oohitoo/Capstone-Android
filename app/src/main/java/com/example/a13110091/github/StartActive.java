@@ -1,6 +1,9 @@
 package com.example.a13110091.github;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
@@ -52,6 +55,14 @@ public class StartActive extends AppCompatActivity {
         setContentView(R.layout.activity_start_active);
 
         setTitle("나의 자세는");
+        /* WIFI 자동으로 연결 해주는 코드 (앱 키면 자동으로 켜주는거 )*/
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        if(wifiManager != null) {
+            if (!wifiManager.isWifiEnabled()) {
+                wifiManager.setWifiEnabled(true);
+            }
+        }
 
         //새로운 파싱법인 부분
         list = (ListView)findViewById(R.id.listView);
@@ -130,23 +141,23 @@ public class StartActive extends AppCompatActivity {
 
                 switch(cass){
                     case "p": //p면 이거
-                        iv.setImageResource(R.drawable.success);
+                        iv.setImageResource(R.drawable.success); //success
                         Log.e("1번 :", iv+"");
                         break;
                     case  "왼쪽으로 앉았습니다": // 1
-                        iv.setImageResource(R.drawable.sitleft);
+                        iv.setImageResource(R.drawable.sitleft); //sitleft
                         Log.e("2번:", iv+"");
                         break;
                     case  "오른쪽으로 앉았습니다": // 2
-                        iv.setImageResource(R.drawable.sitright);
+                        iv.setImageResource(R.drawable.sitright); //sitright
                         Log.e("3번:", iv+"");
                         break;
                     case  "앞으로 앉았습니다": // 3
-                        iv.setImageResource(R.drawable.situp);
+                        iv.setImageResource(R.drawable.situp); //situp
                         Log.e("4번:", iv+"");
                         break;
                     case  "뒤로 앉았습니다": // 4
-                        iv.setImageResource(R.drawable.sitback);
+                        iv.setImageResource(R.drawable.sitback); //sitback
                         Log.e("5번:", iv+"");
                         break;
                 }
