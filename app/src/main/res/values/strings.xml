@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TEST</string>
+    <string name="wifi_start">시작중</string>
+    <string name="wifi_end">종료중</string>
 </resources>

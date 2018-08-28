@@ -10,6 +10,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -55,7 +58,7 @@ public class StartActive extends AppCompatActivity {
         setContentView(R.layout.activity_start_active);
 
         setTitle("나의 자세는");
-        /* WIFI 자동으로 연결 해주는 코드 (앱 키면 자동으로 켜주는거 )*/
+        /* WIFI 자동으로 연결 해주는 코드*/
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         if(wifiManager != null) {
@@ -91,6 +94,30 @@ public class StartActive extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+//            case R.id.action_save:
+//                Toast.makeText(this, "save", Toast.LENGTH_LONG).show();
+//                return true;
+            case R.id.action_bar_setting:
+                Toast.makeText(this, "setting", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, Setting.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
     }
 
     Handler handler = new Handler() {
