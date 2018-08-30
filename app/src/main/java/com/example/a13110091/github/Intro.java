@@ -22,6 +22,7 @@ public class Intro extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(Intro.this, StartActive.class);
                 startActivity(intent);
+                finish();
             }
         },2000);
     }

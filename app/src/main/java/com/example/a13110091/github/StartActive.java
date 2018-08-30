@@ -38,6 +38,8 @@ import java.util.List;
 
 public class StartActive extends AppCompatActivity {
 
+    private long time=0;
+
     /* 추가한 라인 새로운 파싱법 */
     String myJSON;
 
@@ -95,14 +97,24 @@ public class StartActive extends AppCompatActivity {
             }
         });
     }
+    /* 뒤로가기 두번 하면 앱 종료 시키는것 */
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis() - time >= 2000){
+            time = System.currentTimeMillis();
+            Toast.makeText(getApplicationContext(), "뒤로 버튼을 한번 더 누르면 종료 됩니다.", Toast.LENGTH_LONG).show();
+        }else if(System.currentTimeMillis() - time < 2000){
+            finish();
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-//            case R.id.action_save:
-//                Toast.makeText(this, "save", Toast.LENGTH_LONG).show();
-//                return true;
+            case R.id.action_save:
+                Toast.makeText(this, "save", Toast.LENGTH_LONG).show();
+                return true;
             case R.id.action_bar_setting:
                 Toast.makeText(this, "setting", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, Setting.class);
@@ -167,23 +179,23 @@ public class StartActive extends AppCompatActivity {
                 Log.d("PPPPP", cass);
 
                 switch(cass){
-                    case "p": //p면 이거
+                    case "올바른": //p면 이거
                         iv.setImageResource(R.drawable.success); //success
                         Log.e("1번 :", iv+"");
                         break;
-                    case  "왼쪽으로 앉았습니다": // 1
+                    case  "왼쪽": // 1
                         iv.setImageResource(R.drawable.sitleft); //sitleft
                         Log.e("2번:", iv+"");
                         break;
-                    case  "오른쪽으로 앉았습니다": // 2
+                    case  "오른쪽": // 2
                         iv.setImageResource(R.drawable.sitright); //sitright
                         Log.e("3번:", iv+"");
                         break;
-                    case  "앞으로 앉았습니다": // 3
+                    case  "앞": // 3
                         iv.setImageResource(R.drawable.situp); //situp
                         Log.e("4번:", iv+"");
                         break;
-                    case  "뒤로 앉았습니다": // 4
+                    case  "뒤": // 4
                         iv.setImageResource(R.drawable.sitback); //sitback
                         Log.e("5번:", iv+"");
                         break;

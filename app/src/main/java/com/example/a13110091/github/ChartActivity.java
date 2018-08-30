@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,6 +33,8 @@ public class ChartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chart);
 
         setTitle("날짜별보기");
+        /* 홈 버튼 표시 하기*/
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        TextView userListTextView = (TextView)findViewById(R.id.userListTextView);
         final Intent intent = getIntent();
@@ -104,6 +107,18 @@ public class ChartActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void searchUser(String search){
 
         senserList.clear();

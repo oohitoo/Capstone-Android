@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setTitle("상세보기");
+        /* 홈 버튼 표시 */
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button chart = (Button)findViewById(R.id.mainbt1);
         Button grape = (Button)findViewById(R.id.mainbt2);
@@ -119,6 +122,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     class  phpdo extends AsyncTask<String, Void, String>{
 
         protected void onPreExecute(){
@@ -222,6 +237,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ChartActivity.class);
             intent.putExtra("userList", result);
             intent.putExtra("1234", DATE);
+            /* 받아서 들어오는거 확인 완료 */
+            Log.e("userList", result);
             MainActivity.this.startActivity(intent);
         }
     }
