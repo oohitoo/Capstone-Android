@@ -45,9 +45,9 @@ public class ChartActivity extends AppCompatActivity {
 
         saveList = new ArrayList<Senser>(); //초기화 해준뒤
 
-//         senserList.add(new Senser("11","11","1","11","11","11","11"));
-//         senserList.add(new Senser("22","11","1","11","11","11","22"));
-//         senserList.add(new Senser("33","11","1","11","11","11","33"));
+//         senserList.add(new Senser("11","11","1","11","11","11","11","11"));
+//         senserList.add(new Senser("22","11","1","11","11","11","22","22"));
+//         senserList.add(new Senser("33","11","1","11","11","11","33","33"));
 
         adapter = new SenserListAdapter(getApplicationContext(), senserList, saveList);
         listView.setAdapter(adapter);
@@ -56,7 +56,7 @@ public class ChartActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList")); //userList
             JSONArray jsonArray = jsonObject.getJSONArray("response");
             int count= 0;
-            String senser1, senser2, senser3, senser4, senser5, senser6, data_hora;
+            String senser1, senser2, senser3, senser4, senser5, senser6, posture ,data_hora;
 //             String senser1;
             while (count < jsonArray.length()){
                 JSONObject object = jsonArray.getJSONObject(count);
@@ -66,11 +66,13 @@ public class ChartActivity extends AppCompatActivity {
                 senser4 = object.getString("sensor4");
                 senser5 = object.getString("sensor5");
                 senser6 = object.getString("sensor6");
+                posture = object.getString("posture");
                 data_hora = object.getString("date_time");
-                Senser senser = new Senser(senser1, senser2, senser3, senser4, senser5, senser6, data_hora);
+                Senser senser = new Senser(senser1, senser2, senser3, senser4, senser5, senser6, posture ,data_hora);
 //                 Senser senser = new Senser(senser1);
                 senserList.add(senser);
                 saveList.add(senser);
+//                Log.e("tag", senser+"'" +"/" + senserList);
                 count++;
             }
         }catch (Exception e){

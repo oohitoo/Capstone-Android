@@ -1,6 +1,7 @@
 package com.example.a13110091.github;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -48,6 +49,7 @@ public class SenserListAdapter extends BaseAdapter{
         TextView senser4 = (TextView)v.findViewById(R.id.senser4);
         TextView senser5 = (TextView)v.findViewById(R.id.senser5);
         TextView senser6 = (TextView)v.findViewById(R.id.senser6);
+        TextView posture = (TextView)v.findViewById(R.id.posture);
         TextView data = (TextView)v.findViewById(R.id.data);
 
         senser1.setText(senserList.get(i).getSenser1());
@@ -56,6 +58,7 @@ public class SenserListAdapter extends BaseAdapter{
         senser4.setText(senserList.get(i).getSenser4());
         senser5.setText(senserList.get(i).getSenser5());
         senser6.setText(senserList.get(i).getSenser6());
+        posture.setText(senserList.get(i).getPosture());
         data.setText(senserList.get(i).getData_hora());
 
         v.setTag(senserList.get(i).getSenser1());

@@ -12,6 +12,7 @@ public class Senser {
     String senser4;
     String senser5;
     String senser6;
+    String posture;
     String data_hora;
 
     public String getSenser1() {
@@ -62,6 +63,14 @@ public class Senser {
         this.senser6 = senser6;
     }
 
+    public String getPosture() {
+        return posture;
+    }
+
+    public void setPosture(String posture) {
+        this.posture = posture;
+    }
+
     public String getData_hora() {
         return data_hora;
     }
@@ -70,13 +79,14 @@ public class Senser {
         this.data_hora = data_hora;
     }
 
-    public Senser(String senser1, String senser2, String senser3, String senser4, String senser5, String senser6, String data_hora) {
+    public Senser(String senser1, String senser2, String senser3, String senser4, String senser5, String senser6, String posture, String data_hora) {
         this.senser1 = senser1;
         this.senser2 = senser2;
         this.senser3 = senser3;
         this.senser4 = senser4;
         this.senser5 = senser5;
         this.senser6 = senser6;
+        this.posture = posture;
         this.data_hora = data_hora;
     }
 }
