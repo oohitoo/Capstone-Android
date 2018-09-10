@@ -30,6 +30,8 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0' //인터넷 접근
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4' // 안드로이드 차트
     provided 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2' // 아파치서버를 이용한 라이브러리
+    implementation 'com.android.support:design:27.1.1'
+    compile 'com.github.dakatso:livebutton:1.0.0' // Custom Button (커스텀 버튼)
 }
 repositories {
     maven { url "https://jitpack.io" }

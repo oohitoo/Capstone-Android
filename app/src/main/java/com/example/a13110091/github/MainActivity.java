@@ -3,16 +3,19 @@ package com.example.a13110091.github;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -43,12 +46,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setTitle("상세보기");
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //가로 고정
         /* 홈 버튼 표시 */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button chart = (Button)findViewById(R.id.mainbt1);
         Button grape = (Button)findViewById(R.id.mainbt2);
         tv2 = (TextView)findViewById(R.id.data);
+        /* 클릭못하게 하는거랑 포커스 못맞추게 하는거 */
         tv2.setFocusable(false);
         tv2.setClickable(false);
         final ImageButton img = (ImageButton)findViewById(R.id.imgbtn);
@@ -123,6 +128,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /* 메뉴바 메뉴버튼 누르면 설정창 뛰울수 있게 하였음 */
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
@@ -130,8 +144,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 return true;
             }
+            case R.id.action_bar_setting:
+                Toast.makeText(this, "setting", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, Setting.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     class  phpdo extends AsyncTask<String, Void, String>{

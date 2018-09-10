@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,90 +7,117 @@
     tools:context="com.example.a13110091.github.MainActivity">
 
 
-    <ImageButton
-        android:id="@+id/imgbtn"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/tv3"
-        app:srcCompat="@drawable/dalrok" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imgbtn"
-        android:singleLine="false"
-        android:text="달력을 터치하여\n날짜를 선택하세요"
-        android:textAlignment="center"
-        android:textAllCaps="false" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/mainbt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imgbtn"
-        android:text="날짜별보기" />
+        <ImageButton
+            android:id="@+id/imgbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dalrok" />
 
-    <ImageView
-        android:id="@+id/imgbtn2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/mainbt1"
-        app:srcCompat="@drawable/grap" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/mainbt1"
-        android:layout_marginTop="24dp"
-        android:layout_toEndOf="@+id/imgbtn2"
-        android:text="아래의 버튼을 클릭하면 \n원형그래프가 나옵니다"
-        android:textAlignment="center" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="달력을터치하여\n날짜를선택하세요"
+                android:textAlignment="center" />
 
-    <Button
-        android:id="@+id/mainbt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imgbtn2"
-        android:text="그래프로보기" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <!--<TextView-->
-        <!--android:id="@+id/tv2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/tv1"-->
-        <!--android:layout_toEndOf="@+id/imgbtn"-->
-        <!--android:text="날짜" />-->
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="날짜" />
+            </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/data"
-        android:layout_toEndOf="@+id/imgbtn"
-        android:text="선택한 날짜가 맞습니까?"
-        android:textAlignment="center" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="선택한날짜가\n 맞습니까?"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/tv1"
-        android:layout_toEndOf="@+id/imgbtn"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        <ru.katso.livebutton.LiveButton
+            xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mainbt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="날짜별 보기"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            livebutton:backgroundColor="#F57F76"
+            livebutton:corners="4dp"
+            livebutton:normalHeight="6dp"
+            livebutton:pressedHeight="2dp"
+            livebutton:shadowColor="#b16262" />
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/grap" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="아래의버튼을클릭하면\n원형그래프가나옵니다"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ru.katso.livebutton.LiveButton
+            xmlns:livebutton="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mainbt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="그래프 보기"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            livebutton:backgroundColor="#F57F76"
+            livebutton:corners="4dp"
+            livebutton:normalHeight="6dp"
+            livebutton:pressedHeight="2dp"
+            livebutton:shadowColor="#b16262" />
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

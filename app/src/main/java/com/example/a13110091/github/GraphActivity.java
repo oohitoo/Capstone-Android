@@ -32,6 +32,8 @@ public class GraphActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
 
+        setTitle("원형 그래프 보기");
+
         // 날짜 받았음
         Intent intent = getIntent();
         Log.e("DATE",intent.getExtras().getString("DATE"));
@@ -94,12 +96,12 @@ public class GraphActivity extends AppCompatActivity {
     }
 
     public void AddValuesToPieEntryLabels(){
-
-        PieEntryLabels.add("January");
-        PieEntryLabels.add("February");
-        PieEntryLabels.add("March");
-        PieEntryLabels.add("April");
-        PieEntryLabels.add("May");
+        /* 앉은 자세에 대한 색상별로 확인할것 */
+        PieEntryLabels.add("올바른자세"); /* January */
+        PieEntryLabels.add("왼쪽 기울임"); /* February */
+        PieEntryLabels.add("오른쪽 기울임"); /* March */
+        PieEntryLabels.add("앞 기울임"); /* April */
+        PieEntryLabels.add("뒤로 기울임"); /* May */
 
     }
 }

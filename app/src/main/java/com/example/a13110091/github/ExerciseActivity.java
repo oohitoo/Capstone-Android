@@ -18,7 +18,7 @@ public class ExerciseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise);
 
-        setTitle("차트별 보기");
+        setTitle("운동법 및 관련 운동");
         /* 홈 버튼 생성 */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

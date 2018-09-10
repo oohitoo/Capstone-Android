@@ -3,6 +3,7 @@ package com.example.a13110091.github;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -58,8 +59,11 @@ public class StartActive extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_active);
-
+        /* 화면 가로 세로 고정 */
         setTitle("나의 자세는");
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //가로 고정
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); //세로 고정
+
         /* WIFI 자동으로 연결 해주는 코드*/
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -107,14 +111,14 @@ public class StartActive extends AppCompatActivity {
             finish();
         }
     }
-
+    /* 메뉴바 메뉴버튼 누르면 설정창 뛰울수 있게 하였음 */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_save:
-                Toast.makeText(this, "save", Toast.LENGTH_LONG).show();
-                return true;
+//            case R.id.action_save:
+//                Toast.makeText(this, "save", Toast.LENGTH_LONG).show();
+//                return true;
             case R.id.action_bar_setting:
                 Toast.makeText(this, "setting", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, Setting.class);
