@@ -26,6 +26,7 @@ public class GraphActivity extends AppCompatActivity {
     PieData pieData ;
 
     String p, one, two, three, four, five;
+    String left, right, run, back, center;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +49,18 @@ public class GraphActivity extends AppCompatActivity {
 //            String p, one, two, three, four, five;
             for (int i =0; i < jsonArray.length(); i++){
                 JSONObject object = jsonArray.getJSONObject(i);
-                p = object.getString("p");
-                one = object.getString("one");
-                two = object.getString("two");
-                three = object.getString("three");
-                four = object.getString("four");
-                five = object.getString("five");
+                left = object.getString("왼쪽");
+                right = object.getString("오른쪽");
+                run = object.getString("앞쪽");
+                back = object.getString("뒤쪽");
+                center = object.getString("바른자세");
+//                one = object.getString("one");
+//                two = object.getString("two");
+//                three = object.getString("three");
+//                four = object.getString("four");
+//                five = object.getString("five");
 
-                Log.e("되나요?", p + one + two + three + four + five);
+                Log.e("되나요?", left + right + run + back + center);
 //                tv2.setText(p + one + two + three + four + five);
             }
             Log.e("33333", jsonArray+"");
@@ -87,21 +92,21 @@ public class GraphActivity extends AppCompatActivity {
 
     public void AddValuesToPIEENTRY(){
 
-        entries.add(new BarEntry(Float.parseFloat(p), 0)); // 숫자값 2f 4f 6f 8f 7f
-        entries.add(new BarEntry(Float.parseFloat(one), 1));
-        entries.add(new BarEntry(Float.parseFloat(two), 2));
-        entries.add(new BarEntry(Float.parseFloat(three), 3));
-        entries.add(new BarEntry(Float.parseFloat(five), 4));
+        entries.add(new BarEntry(Float.parseFloat(left), 0)); // 숫자값 2f 4f 6f 8f 7f 왼쪽
+        entries.add(new BarEntry(Float.parseFloat(right), 1)); // 오른쪽
+        entries.add(new BarEntry(Float.parseFloat(center), 2)); //정자세
+        entries.add(new BarEntry(Float.parseFloat(back), 3)); // 뒤로
+        entries.add(new BarEntry(Float.parseFloat(run), 4)); // 앞으로
 
     }
 
     public void AddValuesToPieEntryLabels(){
         /* 앉은 자세에 대한 색상별로 확인할것 */
-        PieEntryLabels.add("올바른자세"); /* January */
-        PieEntryLabels.add("왼쪽 기울임"); /* February */
-        PieEntryLabels.add("오른쪽 기울임"); /* March */
-        PieEntryLabels.add("앞 기울임"); /* April */
-        PieEntryLabels.add("뒤로 기울임"); /* May */
+        PieEntryLabels.add("왼쪽 기울임"); /* January */
+        PieEntryLabels.add("오른쪽 기울임"); /* February */
+        PieEntryLabels.add("정자세 기울임"); /* March */
+        PieEntryLabels.add("뒤로 기울임"); /* April */
+        PieEntryLabels.add("앞으로 기울임"); /* May */
 
     }
 }

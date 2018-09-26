@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TEST</string>
+    <string name="app_name">자세교정 헬스케어</string>
     <string name="wifi_start">시작중</string>
     <string name="wifi_end">종료중</string>
 </resources>

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:livebutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.a13110091.github.StartActive">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -18,8 +20,7 @@
             android:layout_height="wrap_content"
             android:text="나의 현재자세는?"
             android:textAlignment="center"
-            android:textSize="30sp"
-            />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/caseimage"
@@ -35,41 +36,40 @@
             android:layout_height="40dp"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="89dp"
+            <!--<LinearLayout-->
+                <!--android:layout_width="89dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<ListView-->
+                    <!--android:id="@+id/listView"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textSize="40dp" />-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
+
+            <TextView
+                android:id="@+id/checksitdown"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ListView
-                    android:id="@+id/listView"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:textSize="40dp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/checksitdown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="left|center"
-                    android:text="(으로)자세로 앉았습니다"
-                    android:textSize="20sp" />
-            </LinearLayout>
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="(으로)자세로 앉았습니다"
+                android:textSize="20sp" />
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="94dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -85,73 +85,47 @@
                 android:text="TextView" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <!--<Button-->
-            <!--android:id="@+id/startbt1"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="상세보기" />-->
-
-            <!--<Button-->
-            <!--android:id="@+id/startbt2"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="운동법" />-->
-            <LinearLayout
-                android:layout_width="149dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ru.katso.livebutton.LiveButton
-                    xmlns:livebutton="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/startbt1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="상세보기"
-                    android:textColor="#ffffff"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    livebutton:backgroundColor="#489CFF"
-                    livebutton:corners="4dp"
-                    livebutton:normalHeight="6dp"
-                    livebutton:pressedHeight="2dp"
-                    livebutton:shadowColor="#5AAEFF" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="172dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ru.katso.livebutton.LiveButton
-                    xmlns:livebutton="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/startbt2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="운동법"
-                    android:textColor="#ffffff"
-                    android:textSize="26sp"
-                    android:textStyle="bold"
-                    livebutton:backgroundColor="#FF9900"
-                    livebutton:corners="4dp"
-                    livebutton:normalHeight="6dp"
-                    livebutton:pressedHeight="2dp"
-                    livebutton:shadowColor="#FF7000" />
-
-            </LinearLayout>
-        </LinearLayout>
-
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ru.katso.livebutton.LiveButton
+            android:id="@+id/startbt1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:text="상세보기"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            livebutton:backgroundColor="#489CFF"
+            livebutton:corners="4dp"
+            livebutton:normalHeight="6sp"
+            livebutton:pressedHeight="2dp"
+            livebutton:shadowColor="#5AAEFF"/>
+
+        <ru.katso.livebutton.LiveButton
+            android:id="@+id/startbt2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:text="운동법"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            livebutton:backgroundColor="#FF9900"
+            livebutton:corners="4dp"
+            livebutton:normalHeight="6sp"
+            livebutton:pressedHeight="2dp"
+            livebutton:shadowColor="#FF7000"/>
+    </LinearLayout>
+
 </LinearLayout>
+
+
 
 <!--<TextView
 android:id="@+id/starttv1"

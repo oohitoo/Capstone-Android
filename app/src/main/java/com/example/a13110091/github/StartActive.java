@@ -55,10 +55,15 @@ public class StartActive extends AppCompatActivity {
 
     ImageView iv;
 
+    TextView view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_active);
+
+        view = (TextView)findViewById(R.id.checksitdown);
+
         /* 화면 가로 세로 고정 */
         setTitle("나의 자세는");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //가로 고정
@@ -173,6 +178,8 @@ public class StartActive extends AppCompatActivity {
 
             for(int i =0; i < peoples.length(); i++){
                 JSONObject c = peoples.getJSONObject(i);
+
+                Log.d("c임", c+"");
                 String cass = c.getString(TAG_CASS);
 
                 HashMap<String, String> persons = new HashMap<String, String>();
@@ -182,24 +189,26 @@ public class StartActive extends AppCompatActivity {
                 Log.d("머가잇니", String.valueOf(persons));
                 Log.d("PPPPP", cass);
 
+                view.setText(cass + "   "+ "앉았습니다.");
+
                 switch(cass){
-                    case "올바른": //p면 이거
+                    case "바른자세": //p면 이거
                         iv.setImageResource(R.drawable.success); //success
                         Log.e("1번 :", iv+"");
                         break;
-                    case  "왼쪽": // 1
+                    case  "왼쪽 으로": // 1
                         iv.setImageResource(R.drawable.sitleft); //sitleft
                         Log.e("2번:", iv+"");
                         break;
-                    case  "오른쪽": // 2
+                    case  "오른쪽 으로": // 2
                         iv.setImageResource(R.drawable.sitright); //sitright
                         Log.e("3번:", iv+"");
                         break;
-                    case  "앞": // 3
+                    case  "앞 으로": // 3
                         iv.setImageResource(R.drawable.situp); //situp
                         Log.e("4번:", iv+"");
                         break;
-                    case  "뒤": // 4
+                    case  "뒤 으로": // 4
                         iv.setImageResource(R.drawable.sitback); //sitback
                         Log.e("5번:", iv+"");
                         break;
@@ -212,14 +221,14 @@ public class StartActive extends AppCompatActivity {
                 Log.d("1111" , personList+"");
             }
 
-            ListAdapter adapter = new SimpleAdapter(StartActive.this, personList, R.layout.list_item, new String[]{TAG_CASS}, new int[]{R.id.posture});
+//            ListAdapter adapter = new SimpleAdapter(StartActive.this, personList, R.layout.list_item, new String[]{TAG_CASS} ,new int[]{R.id.posture});
 
 //            if( == "posture"){
 //                Log.e("123", "되냐");
 //                iv.setImageResource(R.drawable.intro);
 //            }
 
-            list.setAdapter(adapter);
+//            list.setAdapter(adapter);
 
         }catch (Exception e){
             Log.d("222", "여기까지 되니?");

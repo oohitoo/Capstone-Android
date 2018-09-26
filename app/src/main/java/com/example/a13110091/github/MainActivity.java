@@ -107,9 +107,13 @@ public class MainActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setMessage("달력을 클릭하여 날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
                 }else {
-                    Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+//                    Intent intent = new Intent(MainActivity.this, Alllist.class);
+                    Intent intent = new Intent(MainActivity.this, Alllist.class);
                     startActivity(intent);
-                    new BackgroundTask().execute();
+                    /* 수정 전 코드 */
+//                    Intent intent = new Intent(MainActivity.this, ChartActivity.class);
+//                    startActivity(intent);
+//                    new BackgroundTask().execute();
                 }
             }
         });

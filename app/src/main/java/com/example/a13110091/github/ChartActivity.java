@@ -56,19 +56,22 @@ public class ChartActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList")); //userList
             JSONArray jsonArray = jsonObject.getJSONArray("response");
             int count= 0;
-            String senser1, senser2, senser3, senser4, senser5, senser6, posture ,data_hora;
+            /* posture 남기기 전 */
+//            String senser1, senser2, senser3, senser4, senser5, senser6, posture ,data_hora;
+            String posture ,data_hora;
 //             String senser1;
             while (count < jsonArray.length()){
                 JSONObject object = jsonArray.getJSONObject(count);
-                senser1 = object.getString("sensor1");
-                senser2 = object.getString("sensor2");
-                senser3 = object.getString("sensor3");
-                senser4 = object.getString("sensor4");
-                senser5 = object.getString("sensor5");
-                senser6 = object.getString("sensor6");
+//                senser1 = object.getString("sensor1");
+//                senser2 = object.getString("sensor2");
+//                senser3 = object.getString("sensor3");
+//                senser4 = object.getString("sensor4");
+//                senser5 = object.getString("sensor5");
+//                senser6 = object.getString("sensor6");
                 posture = object.getString("posture");
                 data_hora = object.getString("date_time");
-                Senser senser = new Senser(senser1, senser2, senser3, senser4, senser5, senser6, posture ,data_hora);
+//                Senser senser = new Senser(senser1, senser2, senser3, senser4, senser5, senser6, posture ,data_hora);
+                Senser senser = new Senser(posture ,data_hora);
 //                 Senser senser = new Senser(senser1);
                 senserList.add(senser);
                 saveList.add(senser);

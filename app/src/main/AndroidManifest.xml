@@ -7,16 +7,23 @@
     <!-- WIFI 사용가능하게 하는 퍼미션 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
 
     <uses-feature android:name="android.hardware.wifi" />
+    <!-- SDK23 이상 부터는 </application> 아래에 작성 해주어야 한다. -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 인터넷을 사용함 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- LTE / 3G 자동으로 켜기 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- android:icon: "@drawable/icon" 이부분 변경시 앱 설치할때 이미지 변경 -->
-    <!-- android:label: "앱 이름 변경 가능" 이부분 변경시 앱 이름 변경 가능-->
+    <!-- android:label: "앱 이름 변경 가능" 이부분 변경시 앱 이름 변경 가능 -->
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/mainicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -46,7 +53,9 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Setting"></activity>
+        <activity android:name=".Setting" />
+        <activity android:name=".t123123" />
+        <activity android:name=".Alllist"></activity>
     </application>
 
 </manifest>

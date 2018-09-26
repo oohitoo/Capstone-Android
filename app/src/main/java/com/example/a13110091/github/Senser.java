@@ -79,7 +79,7 @@ public class Senser {
         this.data_hora = data_hora;
     }
 
-    public Senser(String senser1, String senser2, String senser3, String senser4, String senser5, String senser6, String posture, String data_hora) {
+    public Senser(/*String senser1, String senser2, String senser3, String senser4, String senser5, String senser6,*/ String posture, String data_hora) {
         this.senser1 = senser1;
         this.senser2 = senser2;
         this.senser3 = senser3;

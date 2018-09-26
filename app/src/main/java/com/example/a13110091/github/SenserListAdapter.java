@@ -43,21 +43,21 @@ public class SenserListAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = view.inflate(context, R.layout.user, null);
-        TextView senser1 = (TextView)v.findViewById(R.id.senser1);
-        TextView senser2 = (TextView)v.findViewById(R.id.senser2);
-        TextView senser3 = (TextView)v.findViewById(R.id.senser3);
-        TextView senser4 = (TextView)v.findViewById(R.id.senser4);
-        TextView senser5 = (TextView)v.findViewById(R.id.senser5);
-        TextView senser6 = (TextView)v.findViewById(R.id.senser6);
+//        TextView senser1 = (TextView)v.findViewById(R.id.senser1);
+//        TextView senser2 = (TextView)v.findViewById(R.id.senser2);
+//        TextView senser3 = (TextView)v.findViewById(R.id.senser3);
+//        TextView senser4 = (TextView)v.findViewById(R.id.senser4);
+//        TextView senser5 = (TextView)v.findViewById(R.id.senser5);
+//        TextView senser6 = (TextView)v.findViewById(R.id.senser6);
         TextView posture = (TextView)v.findViewById(R.id.posture);
         TextView data = (TextView)v.findViewById(R.id.data);
 
-        senser1.setText(senserList.get(i).getSenser1());
-        senser2.setText(senserList.get(i).getSenser2());
-        senser3.setText(senserList.get(i).getSenser3());
-        senser4.setText(senserList.get(i).getSenser4());
-        senser5.setText(senserList.get(i).getSenser5());
-        senser6.setText(senserList.get(i).getSenser6());
+//        senser1.setText(senserList.get(i).getSenser1());
+//        senser2.setText(senserList.get(i).getSenser2());
+//        senser3.setText(senserList.get(i).getSenser3());
+//        senser4.setText(senserList.get(i).getSenser4());
+//        senser5.setText(senserList.get(i).getSenser5());
+//        senser6.setText(senserList.get(i).getSenser6());
         posture.setText(senserList.get(i).getPosture());
         data.setText(senserList.get(i).getData_hora());
 

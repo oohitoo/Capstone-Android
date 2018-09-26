@@ -5,74 +5,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/senser1"
-        android:text="센서1"
-        android:textSize="20dp"
-        android:textColor="#FF0000"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/senser1"-->
+        <!--android:text="센서1"-->
+        <!--android:textSize="20dp"-->
+        <!--android:textColor="#FF0000"/>-->
 
-    <TextView
-        android:id="@+id/senser2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/senser1"
-        android:text="센서2"
-        android:textColor="#adff2f"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="27dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/senser2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginStart="16dp"-->
+        <!--android:layout_toEndOf="@+id/senser1"-->
+        <!--android:text="센서2"-->
+        <!--android:textColor="#adff2f"-->
+        <!--android:textSize="20dp"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="27dp" />-->
 
-    <TextView
-        android:id="@+id/senser3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="센서3"
-        android:textColor="#ff8400"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="53dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/senser3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="센서3"-->
+        <!--android:textColor="#ff8400"-->
+        <!--android:textSize="20dp"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="53dp" />-->
 
-    <TextView
-        android:id="@+id/senser4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/senser1"
-        android:text="센서4"
-        android:textColor="#00a7f5"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="79dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/senser4"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_below="@+id/senser1"-->
+        <!--android:text="센서4"-->
+        <!--android:textColor="#00a7f5"-->
+        <!--android:textSize="20dp"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="79dp" />-->
 
-    <TextView
-        android:id="@+id/senser5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/senser2"
-        android:layout_below="@+id/senser2"
-        android:text="센서5"
-        android:textColor="#00a7f5"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="105dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/senser5"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/senser2"-->
+        <!--android:layout_below="@+id/senser2"-->
+        <!--android:text="센서5"-->
+        <!--android:textColor="#00a7f5"-->
+        <!--android:textSize="20dp"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="105dp" />-->
 
-    <TextView
-        android:id="@+id/senser6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/senser3"
-        android:layout_below="@+id/senser3"
-        android:text="센서6"
-        android:textColor="#00a7f5"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="131dp" />
+    <!--<TextView-->
+        <!--android:id="@+id/senser6"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/senser3"-->
+        <!--android:layout_below="@+id/senser3"-->
+        <!--android:text="센서6"-->
+        <!--android:textColor="#00a7f5"-->
+        <!--android:textSize="20dp"-->
+        <!--tools:layout_editor_absoluteX="0dp"-->
+        <!--tools:layout_editor_absoluteY="131dp" />-->
 
     <TextView
         android:id="@+id/data"
