@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 String Smonth = null;
                 String Sday = null;
-                if(month <10 && day < 10){
+                if(month < 9 && day < 10){
                     Smonth = "0" + String.valueOf(month + 1);
                     Sday = "0" + String.valueOf(day);
                     tv2.setText(String.format("%4d-%2s-%2s",year,Smonth,Sday));
@@ -80,11 +80,18 @@ public class MainActivity extends AppCompatActivity {
                     Sday = "0" + String.valueOf(day);
                     tv2.setText(String.format("%4d-%2d-%2s",year,month+1,Sday));
                 }
-                else if(month<10 && day >=10){
+                else if(month<9 && day >=10){
                     Smonth = "0" + String.valueOf(month+1);
                     tv2.setText(String.format("%4d-%2s-%2d",year,Smonth,day));
                 }
                 else if(month>=10 && day >=10){
+                    tv2.setText(String.format("%4d-%2d-%2d",year,month+1,day));
+                }
+                else if(month == 9 && day < 10){
+                    Sday = "0" + String.valueOf(day);
+                    tv2.setText(String.format("%4d-%2d-%2s",year,month+1,Sday));
+                }
+                else if(month == 9 && day >=10){
                     tv2.setText(String.format("%4d-%2d-%2d",year,month+1,day));
                 }
 //                tv2.setText(String.format("%4d-%2s-%2d",year,Smonth,day));
@@ -99,22 +106,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent intent = new Intent(MainActivity.this, Alllist.class);
+                startActivity(intent);
+
                // Intent intent1 = new Intent(MainActivity.this, ChartActivity.class);
 
                 //startActivity(intent1);
                 //new BackgroundTask().execute();
-                if(DATE == null){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setMessage("달력을 클릭하여 날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
-                }else {
+//                if(DATE == null){
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                    builder.setMessage("달력을 클릭하여 날짜를 선택하여주세요.").setNegativeButton("다시시도", null).create().show();
+//                }else {
 //                    Intent intent = new Intent(MainActivity.this, Alllist.class);
-                    Intent intent = new Intent(MainActivity.this, Alllist.class);
-                    startActivity(intent);
+//                    startActivity(intent);
                     /* 수정 전 코드 */
 //                    Intent intent = new Intent(MainActivity.this, ChartActivity.class);
 //                    startActivity(intent);
 //                    new BackgroundTask().execute();
-                }
+//                }
             }
         });
         grape.setOnClickListener(new View.OnClickListener() {
@@ -194,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result){
-            //txtview.setText("Login Successful");
+            //txtview.setText("Login Successful");(str = result;
             str = result;
             Log.e("리절트", result);
             //리절트에 값있음

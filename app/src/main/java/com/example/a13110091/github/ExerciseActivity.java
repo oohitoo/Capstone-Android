@@ -22,28 +22,28 @@ public class ExerciseActivity extends AppCompatActivity {
         /* 홈 버튼 생성 */
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button news = (Button)findViewById(R.id.news);
-        Button newsvideo = (Button)findViewById(R.id.newsvideo);
-
-        news.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String url = "http://www.nfc.or.kr/web/G09_4";
-
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
-            }
-        });
-
-        newsvideo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String url = "http://www.speedandpower.co.kr/newsap/subpage/main.asp";
-
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
-            }
-        });
+//        Button news = (Button)findViewById(R.id.news);
+//        Button newsvideo = (Button)findViewById(R.id.newsvideo);
+//
+//        news.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String url = "http://www.nfc.or.kr/web/G09_4";
+//
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                startActivity(intent);
+//            }
+//        });
+//
+//        newsvideo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String url = "http://www.speedandpower.co.kr/newsap/subpage/main.asp";
+//
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override

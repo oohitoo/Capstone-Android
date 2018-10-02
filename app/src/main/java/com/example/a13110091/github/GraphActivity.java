@@ -34,6 +34,7 @@ public class GraphActivity extends AppCompatActivity {
         setContentView(R.layout.activity_graph);
 
         setTitle("원형 그래프 보기");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // 날짜 받았음
         Intent intent = getIntent();
@@ -104,7 +105,7 @@ public class GraphActivity extends AppCompatActivity {
         /* 앉은 자세에 대한 색상별로 확인할것 */
         PieEntryLabels.add("왼쪽 기울임"); /* January */
         PieEntryLabels.add("오른쪽 기울임"); /* February */
-        PieEntryLabels.add("정자세 기울임"); /* March */
+        PieEntryLabels.add("정자세"); /* March */
         PieEntryLabels.add("뒤로 기울임"); /* April */
         PieEntryLabels.add("앞으로 기울임"); /* May */
 

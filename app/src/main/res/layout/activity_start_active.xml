@@ -78,11 +78,6 @@
                 android:layout_height="wrap_content"
                 android:text="주의사항 : 와이파이 및 LTE가 연결되어있어야 합니다." />
 
-            <TextView
-                android:id="@+id/wriing1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
         </LinearLayout>
 
     </LinearLayout>

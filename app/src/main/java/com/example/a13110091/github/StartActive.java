@@ -196,21 +196,25 @@ public class StartActive extends AppCompatActivity {
                         iv.setImageResource(R.drawable.success); //success
                         Log.e("1번 :", iv+"");
                         break;
-                    case  "왼쪽 으로": // 1
+                    case  "왼쪽": // 1
                         iv.setImageResource(R.drawable.sitleft); //sitleft
                         Log.e("2번:", iv+"");
                         break;
-                    case  "오른쪽 으로": // 2
+                    case  "오른쪽": // 2
                         iv.setImageResource(R.drawable.sitright); //sitright
                         Log.e("3번:", iv+"");
                         break;
-                    case  "앞 으로": // 3
+                    case  "앞": // 3
                         iv.setImageResource(R.drawable.situp); //situp
                         Log.e("4번:", iv+"");
                         break;
-                    case  "뒤 으로": // 4
+                    case  "뒤": // 4
                         iv.setImageResource(R.drawable.sitback); //sitback
                         Log.e("5번:", iv+"");
+                        break;
+                    case  "error": // 5
+                        iv.setImageResource(R.drawable.sitno); //sitno
+                        Log.e("6번:", iv+"");
                         break;
                 }
                 if(!personList.isEmpty()){
